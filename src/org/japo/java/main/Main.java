@@ -15,6 +15,7 @@
  */
 package org.japo.java.main;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 /**
@@ -28,8 +29,9 @@ public class Main {
      */
     public static void main(String[] args) {
         // Instanciar Scanner
-        Scanner scn = new Scanner(System.in);
-        
+        Scanner scn = new Scanner(System.in, "ISO-8859-1");
+        scn.useLocale(Locale.ENGLISH);
+
         // Variable
         int talla;
 
@@ -39,15 +41,12 @@ public class Main {
             System.out.print("Talla de zapato ..........: ");
             talla = scn.nextInt();
 
-            // Borrar buffer
-            scn.nextLine();
-            
             // Mensaje
-            System.out.printf("Talla de zapato ..........: %d\n", talla);
+            System.out.printf("Talla de zapato ..........: %d%n", talla);
         } catch (Exception e) {
             // Mensaje
-            System.out.println("Entrada incorrecta");
-
+            System.out.println("ERROR: Entrada incorrecta");
+        } finally {
             // Borrar buffer
             scn.nextLine();
         }
