@@ -1,5 +1,5 @@
 /* 
- * Copyright 2016 José A. Pacheco Ondoño - joanpon@gmail.com.
+ * Copyright 2019 José A. Pacheco Ondoño - joanpaon@gmail.com.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,14 +24,15 @@ import java.util.Scanner;
  */
 public class Main {
 
+    // Instanciar Scanner
+    public static final Scanner SCN
+            = new Scanner(System.in, "ISO-8859-1")
+                    .useLocale(Locale.ENGLISH).useDelimiter("\\s+");
+
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // Instanciar Scanner
-        Scanner scn = new Scanner(System.in, "ISO-8859-1");
-        scn.useLocale(Locale.ENGLISH);
-
         // Variable
         int talla;
 
@@ -39,7 +40,7 @@ public class Main {
         try {
             // Leer dato
             System.out.print("Talla de zapato ..........: ");
-            talla = scn.nextInt();
+            talla = SCN.nextInt();
 
             // Mensaje
             System.out.printf("Talla de zapato ..........: %d%n", talla);
@@ -48,7 +49,7 @@ public class Main {
             System.out.println("ERROR: Entrada incorrecta");
         } finally {
             // Borrar buffer
-            scn.nextLine();
+            SCN.nextLine();
         }
     }
 }
